@@ -393,16 +393,21 @@ Connection con;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     
-        // TODO add your handling code here:
-       // if(databaru==true){
-            try{
-                String sql ="Insert into register values('"+txtid.getText()+"','"+txtnama.getText()+"','"+txtuser.getText()+"','"+txtpass.getText()+"',,'"+txthp.getText()+"',,'"+txtpilih.getSelectedItem()+"',,'"+txtemail.getText()+"');";
-                java.sql.Connection conn =(java.sql.Connection)Program.Koneksi.koneksiDB();
-                java.sql.PreparedStatement pst =conn.prepareStatement(sql);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "berhasil");
-            }catch(HeadlessException | SQLException ex){
-                JOptionPane.showMessageDialog(this, "gagal");
+        String Nama = nama.getText();
+          String Nim = nim.getText();
+          String username = a.getText();
+          String password = b.getText();
+          String role = (String) cb.getSelectedItem();
+          String mail = email.getText();
+try{
+Statement statement = (Statement) Koneksi.GetConnection().createStatement();
+statement.executeUpdate("insert into regis VALUES ('" + Nama +"','"+ Nim +"','" + username +"','"+ password +"','"+ role +"','"+ mail +"');");
+statement.close ();
+JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+       
+
+}catch (Exception t){
+JOptionPane.showMessageDialog(null, "data gagal disimpan");
             }
      //   }
        
