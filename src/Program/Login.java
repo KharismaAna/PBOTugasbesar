@@ -221,7 +221,7 @@ public class Login extends javax.swing.JFrame {
         }else{
             try{
                  con = Koneksi.koneksiDB();
-                 ps =con.prepareStatement("select * from register where username=? and password=?");
+                 ps =con.prepareStatement("select * from regis where username=? and password=?");
                  ps.setString(1, user);
                    ps.setString(2, pass);
                  rs = ps.executeQuery();
